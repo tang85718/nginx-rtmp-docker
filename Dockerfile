@@ -1,7 +1,7 @@
 FROM buildpack-deps:stretch
 
 # Versions of Nginx and nginx-rtmp-module to use
-ENV NGINX_VERSION nginx-1.13.8
+ENV NGINX_VERSION nginx-1.14.0
 ENV NGINX_RTMP_MODULE_VERSION 1.2.1
 
 # Install dependencies
@@ -50,5 +50,8 @@ RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
 # Set up config file
 COPY nginx.conf /etc/nginx/nginx.conf
 
-EXPOSE 1935
+VOLUME /media
+VOLUME /html
+
+EXPOSE 1935 80
 CMD ["nginx", "-g", "daemon off;"]
