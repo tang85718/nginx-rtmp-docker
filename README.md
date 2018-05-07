@@ -9,6 +9,16 @@ docker run -d --name nginx-rtmp-server \
 nginx-rtmp
 ```
 
+## Windows
+```
+docker run -d --name nginx-rtmp-server \
+-p 1935:1935 -p 1800:80 \
+-v /e/nginx-rtmp-docker/html:/media \
+-v /e/nginx-rtmp-docker/media:/html \
+-v /e/nginx-rtmp-docker/nginx.conf:/etc/nginx/nginx.conf \
+dauglastang/nginx-rtmp-docker
+```
+
 ## Supported tags and respective `Dockerfile` links
 
 * [`latest` _(Dockerfile)_](https://github.com/tiangolo/nginx-rtmp-docker/blob/master/Dockerfile)
