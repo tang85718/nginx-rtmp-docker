@@ -3,6 +3,7 @@
 docker run -d --name nginx-rtmp-server \
 -p 1935:1935 \
 -p 1800:80 \
+--restart=always \
 -v ~/docker/nginx-rtmp-docker/media:/media \
 -v ~/docker/nginx-rtmp-docker/html:/html \
 -v ~/docker/nginx-rtmp-docker/nginx.conf:/etc/nginx/nginx.conf \
@@ -12,7 +13,9 @@ nginx-rtmp
 ## Windows
 ```
 docker run -d --name nginx-rtmp-server \
--p 1935:1935 -p 1800:80 \
+-p 1935:1935 \
+-p 1800:80 \
+--restart=always \
 -v /e/nginx-rtmp-docker/html:/media \
 -v /e/nginx-rtmp-docker/media:/html \
 -v /e/nginx-rtmp-docker/nginx.conf:/etc/nginx/nginx.conf \
