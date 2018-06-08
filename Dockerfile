@@ -47,11 +47,13 @@ RUN cd /tmp/build/nginx/${NGINX_VERSION} && \
 RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
     ln -sf /dev/stderr /var/log/nginx/error.log
 
-# Set up config file
-COPY nginx.conf /etc/nginx/nginx.conf
-
+#
 VOLUME /media
 VOLUME /html
+
+# Set up config file
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY html/*.* /html
 
 EXPOSE 1935 80
 CMD ["nginx", "-g", "daemon off;"]
